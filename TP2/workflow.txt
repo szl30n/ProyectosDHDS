@@ -1,5 +1,7 @@
-1. Limpieza de outliers de la columna precio en dólares por m2.
-2. Eliminación de nans de la columna target y features (si no son imputables).
-3. Creación de una matriz de correlación entre las columnas features.
-4. Elección de zona o dataset entero de acuerdo a la variabilidad de los datos.
-5. Creación de columnas dummies.
+1. Dropeo de columnas no informativas (unnamed: 0, expenses, etc).
+2. Imputación de columnas features (e.g. rooms).
+3. Limpieza de outliers de la columna precio en dólares por m2.
+4. Dropeo de nans de la columna target y features (si no son imputables).
+5. Creación de una matriz de correlación entre las columnas features.
+6. Elección de zona o dataset entero.
+7. Creación de columnas dummies.
