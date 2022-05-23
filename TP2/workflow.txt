@@ -1,8 +1,8 @@
 1. Selecciono subdataset AMBA
 2. Dropeo de columnas no informativas (unnamed: 0, expenses, etc).
 3. Imputación de columnas features (e.g. rooms).
-4. Elimino duplicados
+4. Eliminación de duplicados.
 5. Limpieza de outliers de la columna precio en dólares por m2.
-6. Dropeo de nans de la columna target y features (si no son imputables).
-7. Creación de columnas dummies (amenities, state_name, place_name)
-8. Creación de una matriz de correlación entre las columnas features. (falta)
+6. Dropeo de nans de la columna target y features.
+7. Creación de una matriz de correlación entre las columnas features (falta).
+8. Creación de columnas dummies (amenities, state_name, place_name).
