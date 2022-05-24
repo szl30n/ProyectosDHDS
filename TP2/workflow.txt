@@ -1,8 +1,20 @@
+Limpieza del dataset
+
 1. Selecciono subdataset AMBA
 2. Dropeo de columnas no informativas (unnamed: 0, expenses, etc).
 3. Imputación de columnas features (e.g. rooms).
 4. Eliminación de duplicados.
 5. Limpieza de outliers de la columna precio en dólares por m2.
 6. Dropeo de nans de la columna target y features.
-7. Creación de una matriz de correlación entre las columnas features (falta).
-8. Creación de columnas dummies (amenities, state_name, place_name).
+7. Creación de una matriz de correlación entre las columnas features.
+8. Creación de columnas dummies (amenities, property_type state_name, place_name).
+
+Modelos de regresión
+
+1. Seleccionar el modelos.
+2. Elegir los hiperparámetros del modelo (por default).
+3. Preparar los datos en una matriz de features y un vector target (hecho).
+4. Separar los sets de entrenamiento y de testeo.
+5. Ajustar el modelo a los datos de entrenamiento.
+6. Predecir etiquetas para datos desconocidos.
+7. Evaluar la performance del modelo.
