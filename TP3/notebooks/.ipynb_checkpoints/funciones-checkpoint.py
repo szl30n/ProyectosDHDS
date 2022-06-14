@@ -1,3 +1,5 @@
+
+
 ###   General ###########################################################################################
 #todo natriz de confusions
 def print_matriz_confusion():
@@ -5,7 +7,7 @@ def print_matriz_confusion():
     plt.rcParams['font.size'] = 16
     sns.heatmap(data.iloc[:, :4].corr(), vmin = -1, vmax = 1, center = 0, cmap = "YlGnBu", annot = True)
     
-def get_info(dflocal):
+def _get_info(dflocal):
     print(dflocal.head(3))
     print(dflocal.shape)
 
