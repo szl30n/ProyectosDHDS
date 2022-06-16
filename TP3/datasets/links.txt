@@ -1,4 +1,0 @@
-https://www.kaggle.com/datasets/jsphyg/weather-dataset-rattle-package
-wheatherAUS.csv
-https://archive.ics.uci.edu/ml/datasets/Tarvel+Review+Ratings#
-google_review_ratings.csv
