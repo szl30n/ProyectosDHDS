@@ -7,8 +7,8 @@ def _print_matriz_confusion():
     plt.rcParams['font.size'] = 16
     sns.heatmap(data.iloc[:, :4].corr(), vmin = -1, vmax = 1, center = 0, cmap = "YlGnBu", annot = True)
     
-def _get_info(dflocal):
-    print(dflocal.head(3))
+def _get_info(dflocal,h=3):
+    print(dflocal.head(h))
     print(dflocal.shape)
 
     
