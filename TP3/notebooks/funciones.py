@@ -2,6 +2,14 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
 
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import GridSearchCV, train_test_split
+from sklearn.metrics import classification_report, confusion_matrix
+from sklearn import datasets
+from sklearn.preprocessing import normalize
+
+
 ###   General ###########################################################################################
 #todo natriz de confusions
 def _print_matriz_confusion():
