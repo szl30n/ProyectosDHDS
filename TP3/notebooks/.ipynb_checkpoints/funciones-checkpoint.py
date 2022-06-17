@@ -2,7 +2,7 @@
 
 ###   General ###########################################################################################
 #todo natriz de confusions
-def print_matriz_confusion():
+def _print_matriz_confusion():
     plt.rcParams['figure.figsize'] = (8, 6)
     plt.rcParams['font.size'] = 16
     sns.heatmap(data.iloc[:, :4].corr(), vmin = -1, vmax = 1, center = 0, cmap = "YlGnBu", annot = True)
@@ -14,7 +14,7 @@ def _get_info(dflocal):
     
     
 ###   regrsion lineal simple ###################################################################################
-def get_rls(X,y,columna):
+def _get_rls(X,y,columna):
     # Como estamos trabajando con observaciones ordenadas en el tiempo, ponemos
     # shuffle=False para evitar data leakage    shuffle=False
     Xtrain, Xtest, ytrain, ytest = train_test_split(X, y, random_state = 1, shuffle = False)
@@ -36,7 +36,7 @@ def get_rls(X,y,columna):
 
  
 ###   regrsion lineal multiple ###################################################################################
-def rlm(X, y):
+def _rlm(X, y):
     X_train, X_test, y_train, y_test = train_test_split(X, y, shuffle=False)
     linreg = LinearRegression()
     linreg.fit(X_train, y_train)
