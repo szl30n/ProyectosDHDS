@@ -1,19 +1,12 @@
-import seaborn as sns
-import matplotlib.pyplot as plt
-import plotly.express as px
+
 
 ###   General ###########################################################################################
 #todo natriz de confusions
 def _print_matriz_confusion():
-    plt.rcParams['figure.figsize'] = (15, 9)
-    plt.rcParams['font.size'] = 10
-    sns.heatmap(data.iloc[:, :].corr(), vmin = -1, vmax = 1, center = 0, cmap = "YlGnBu", annot = True)
+    plt.rcParams['figure.figsize'] = (8, 6)
+    plt.rcParams['font.size'] = 16
+    sns.heatmap(data.iloc[:, :4].corr(), vmin = -1, vmax = 1, center = 0, cmap = "YlGnBu", annot = True)
     
-def _print_matriz_correlacion(dflocal):
-    plt.rcParams['figure.figsize'] = (15, 9)
-    plt.rcParams['font.size'] = 10
-    sns.heatmap(dflocal.iloc[:, :].corr(), vmin = -1, vmax = 1, center = 0, cmap = "YlGnBu", annot = True)
-       
 def _get_info(dflocal,h=3):
     print(dflocal.head(h))
     print(dflocal.shape)
