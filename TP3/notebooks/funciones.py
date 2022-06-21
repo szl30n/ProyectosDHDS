@@ -32,7 +32,7 @@ def _get_info(dflocal,h=3):
 def _summary(dflocal):
     return pd.DataFrame({'notnull': dflocal.apply(lambda x: x.notnull().sum()),
                          'dtype': dflocal.apply(lambda x: x.dtype),
-                         'unique': dflocal.apply(lambda x: sorted(x.unique()) if len(x.unique()) <= 10 else '> 10')})
+                         'unique': dflocal.apply(lambda x: x.unique() if len(x.unique()) <= 10 else '> 10')})
 
     
     
