@@ -15,10 +15,14 @@ from sklearn.preprocessing import normalize
 
 ###   General ###########################################################################################
 #todo natriz de confusions
-def _print_matriz_confusion():
-    plt.rcParams['figure.figsize'] = (15, 9)
+def _print_matriz_confusion(yt,yp):
+    plt.rcParams['figure.figsize'] = (10, 5)
     plt.rcParams['font.size'] = 10
-    sns.heatmap(data.iloc[:, :].corr(), vmin = -1, vmax = 1, center = 0, cmap = "YlGnBu", annot = True)
+    cm = confusion_matrix(yt, yp)
+    print(cm)
+    sns.heatmap(cm, annot=True,  fmt='g')
+    plt.ylabel('Etiquetas reales')
+    plt.xlabel('Etiquetas predichas');
     
 def _print_matriz_correlacion(dflocal):
     plt.rcParams['figure.figsize'] = (15, 9)
