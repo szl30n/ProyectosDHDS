@@ -15,10 +15,10 @@ from sklearn.preprocessing import normalize
 
 ###   General ###########################################################################################
 #todo natriz de confusions
-def _print_matriz_confusion(yt,yp,titulo="titulo"):
+def _print_matriz_confusion(yt,yp,titulo="titulo", normalizar = None):
     plt.rcParams['figure.figsize'] = (8, 5)
     plt.rcParams['font.size'] = 10
-    cm = confusion_matrix(yt, yp)
+    cm = confusion_matrix(yt, yp, normalize = normalizar)
     print(cm)
     
     sns.heatmap(cm, annot=True, fmt='g', cmap="GnBu_r")
@@ -39,7 +39,7 @@ def _get_info(dflocal,h=3):
 def _summary(dflocal):
     return pd.DataFrame({'notnull': dflocal.apply(lambda x: x.notnull().sum()),
                          'dtype': dflocal.apply(lambda x: x.dtype),
-                         'unique': dflocal.apply(lambda x: ">10" if len(x.unique()) > 10 else sorted(x.unique()))})
+                         'unique': dflocal.apply(lambda x: ">10" if len(x.unique()) > 10 else x.unique())})
 
 def _metric_AUC(X_t,y_t,y_pred,modelo):
     probs=modelo.predict_proba(X_t)
