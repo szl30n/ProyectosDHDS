@@ -15,12 +15,15 @@ from sklearn.preprocessing import normalize
 
 ###   General ###########################################################################################
 #todo natriz de confusions
-def _print_matriz_confusion(yt,yp):
-    plt.rcParams['figure.figsize'] = (10, 5)
+def _print_matriz_confusion(yt,yp,titulo="titulo", normalizar = None):
+    plt.rcParams['figure.figsize'] = (8, 5)
     plt.rcParams['font.size'] = 10
-    cm = confusion_matrix(yt, yp)
-    print(cm)
-    sns.heatmap(cm, annot=True,  fmt='g')
+    cm = confusion_matrix(yt, yp, normalize = normalizar)
+    print(cm.round(4))
+    
+    sns.heatmap(cm, annot=True, fmt='g', cmap="GnBu_r")
+    #sns.color_palette("Spectral", as_cmap=True)
+    plt.title(titulo)
     plt.ylabel('Etiquetas reales')
     plt.xlabel('Etiquetas predichas');
     
@@ -30,15 +33,20 @@ def _print_matriz_correlacion(dflocal):
     sns.heatmap(dflocal.iloc[:, :].corr(), vmin = -1, vmax = 1, center = 0, cmap = "YlGnBu", annot = True)
        
 def _get_info(dflocal,h=3):
-    print(dflocal.head(h))
     print(dflocal.shape)
+    return dflocal.head(h)  
 
 def _summary(dflocal):
     return pd.DataFrame({'notnull': dflocal.apply(lambda x: x.notnull().sum()),
                          'dtype': dflocal.apply(lambda x: x.dtype),
-                         'unique': dflocal.apply(lambda x: x.unique() if len(x.unique()) <= 10 else '> 10')})
+                         'unique': dflocal.apply(lambda x: ">10" if len(x.unique()) > 10 else x.unique())})
 
-    
+def _metric_AUC(X_t,y_t,y_pred,modelo):
+    probs=modelo.predict_proba(X_t)
+    preds=probs[:,1]
+    fpr,tpr,threshold=metrics.roc_curve(y_test, y_pred)
+    roc_auc=metrics.auc(fpr,tpr)
+    return roc_auc,fpr,tpr,threshold    
     
 ###   regrsion lineal simple ###################################################################################
 def _get_rls(X,y,columna):
