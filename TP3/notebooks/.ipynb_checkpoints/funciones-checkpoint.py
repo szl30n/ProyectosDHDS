@@ -16,7 +16,7 @@ from sklearn.preprocessing import normalize
 ###   General ###########################################################################################
 #todo natriz de confusions
 def _print_matriz_confusion(yt,yp,titulo="titulo", normalizar = None):
-    plt.rcParams['figure.figsize'] = (8, 5)
+    plt.rcParams['figure.figsize'] = (5, 4)
     plt.rcParams['font.size'] = 10
     cm = confusion_matrix(yt, yp, normalize = normalizar).round(4)*100
     print(cm)
