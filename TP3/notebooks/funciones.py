@@ -20,6 +20,16 @@ def _print_matriz_confusion(yt,yp,titulo="titulo", normalizar = None):
     plt.rcParams['font.size'] = 10
     cm = confusion_matrix(yt, yp, normalize = normalizar).round(4)*100
     print(cm)
+    
+    tn, fp, fn, tp = confusion_matrix(yt, yp).ravel()
+    specificity = tn / (tn+fp)
+    sensitivity = tp / (tp + fn)
+    accuracy = (tp+tn)/(tp+tn+fp+fn)
+    Presicion = tp/(tp + fp)
+    print(f" Accuracy: {accuracy.round(4)}")
+    print(f" Specificity: {specificity.round(4)}")
+    print(f" Sensitivity Recall: {sensitivity.round(4)}")
+    print(f" Presicion: {Presicion.round(4)}")
 
     sns.heatmap(cm, annot=True, fmt='g', cmap="GnBu_r")
     #sns.color_palette("Spectral", as_cmap=True)
