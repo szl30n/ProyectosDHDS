@@ -20,7 +20,7 @@ def _print_matriz_confusion(yt,yp,titulo="titulo", normalizar = None):
     plt.rcParams['font.size'] = 10
     cm = confusion_matrix(yt, yp, normalize = normalizar).round(4)*100
     print(cm)
-    
+
     sns.heatmap(cm, annot=True, fmt='g', cmap="GnBu_r")
     #sns.color_palette("Spectral", as_cmap=True)
     plt.title(titulo)
