@@ -18,8 +18,8 @@ from sklearn.preprocessing import normalize
 def _print_matriz_confusion(yt,yp,titulo="titulo", normalizar = None):
     plt.rcParams['figure.figsize'] = (8, 5)
     plt.rcParams['font.size'] = 10
-    cm = confusion_matrix(yt, yp, normalize = normalizar)
-    print(cm.round(4))
+    cm = confusion_matrix(yt, yp, normalize = normalizar).round(4)*100
+    print(cm)
     
     sns.heatmap(cm, annot=True, fmt='g', cmap="GnBu_r")
     #sns.color_palette("Spectral", as_cmap=True)
@@ -46,7 +46,16 @@ def _metric_AUC(X_t,y_t,y_pred,modelo):
     preds=probs[:,1]
     fpr,tpr,threshold=metrics.roc_curve(y_test, y_pred)
     roc_auc=metrics.auc(fpr,tpr)
-    return roc_auc,fpr,tpr,threshold    
+    return roc_auc,fpr,tpr,threshold   
+
+def _alerta_sonido():
+    import winsound
+    import time
+    for x in range(10):
+        time.sleep(1) # Sleep for 3 seconds
+        duration = 1000  # milliseconds
+        freq = 440  # Hz
+        winsound.Beep(freq, duration)
     
 ###   regrsion lineal simple ###################################################################################
 def _get_rls(X,y,columna):
