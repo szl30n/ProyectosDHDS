@@ -1,0 +1,69 @@
+TRABAJO PRACTICO FINAL
+
+ORIGINAL - MODELO DE CLUSTER
+
+Corremos la clusterización y vemos los agrupados obtenemos. Esperamos obtener 2 o 3.
+
+
+EXTENSION - MODELO DE CLASIFICACIÓN
+
+Tomar el subdataset que tiene la información clasificada de aprox 100 ejemplares por haplogrupos, hacer una clasificación
+y despues probamos esta clasificación con los datos que no tiene clasificación.
+
+Lo entrenamos con 80 datos y testeamos con 20. (no lo podemos hacer convencional, debemos hacer leave one out)!!!!!!!!!!!!!!!!!!!! en la clase del 18/7 fué mencionado
+
+si no obtenemos buena performance, podemos buscar tecnicas de data aumentation
+
+Luego nos servirá para comparar con el modelado 1 por clustering.
+
+
+---
+recomendación sole:
+hacer caracterizacion del cluster antes de la clasificación
+
+recordar:
+
+kmeans arranca aleatoriamente
+
+prueben varias semillas diferentes
+
+pruben diferentes condiciones de optimización
+
+probar un DBSCAN, la distribucion por densidad puede aportar info (nos puede servir para validar que el kmeans está bien hecho)
+
+--------------------------------------------------------------------------------
+
+25/07/22
+
+Preparación
+
+- Leer dataset
+- DEJAR COMO INDEX BATCH y OTRA (VER CON ENZO PARA DEJAR LAS 2 COMO INDEX)
+- Tirar estadisticas basicas por columna
+- Correr una distribucion por categoría de datos y hacer un grafico de barras (análisis exploratorio)
+- Crear variables de relacion (entre longitudes de la abertura) - LE/AE, LT/AT, LA/AA, LE/LT, AE/AT, LA/LT, AA/AT, LE/LA, AE/AA
+- Agregar grafico de distribución -----sns.histplot(model.resid, kde = False, stat = 'density', line_kws={'linewidth':5}) - ver notebook principal tp2
+- Hacer dummies de la morfotipo
+- Correr una correlacion (si tenemos correlacion 1 descartarlas, pero si tenemos 0.8... considerarlas) -----f._print_matriz_correlacion(data), ver preparación tp3
+- Exportar el dataset preparado
+
+
+Principal
+
+- Clusterización (nos vá devolver etiquetas) con K-MEANS, Esperamos obtener 2 o 3.
+- DBSCAN
+- Comparar las etiquetas de los cluster con los que tiene identificado enzo
+- Baselines (correr modelo básicos), calcular metricas de performance (ROC, AUC, ACCURACY...)
+- Feature importance
+
+TIP SOLE:
+- Ser flexible en como ejecutar los pasos para ver diferentes resultados obtenidos
+- No sumar dataaumentation hasta que lleguemos a la clusterizacion, y ver si es necesario
+
+
+OBJETIVO DEL DOCTORADO
+
+- ver cuan homogenea es la población
+- caracterizar geneticamente la poblacion
+- caracteerizar morfoanatomicamente
+- predecir distribución potencia utilizando un algoritmo 
