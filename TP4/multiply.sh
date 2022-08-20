@@ -36,7 +36,7 @@ while IFS= read -r line;do
 			nueva_linea=""
 			for i in "${!array[@]}";do
 				factor=0
-				if [ $i -ne 0 ] && [ $i -ne 1 ] && [ $i -ne 9 ] && [ $i -ne 10 ];then
+				if [ $i -ne 0 ] && [ $i -ne 1 ] && [ $i -ne 9 ] && [ $i -ne 10 ] && [ $i -ne 11 ];then
 					# echo -n "${array[$i]}   "
 					# echo -n "${feature_std[$i]}   "
 					while [ $factor -eq 0 ];do factor=$(seq -1 1 | shuf -n 1) ;done
@@ -45,7 +45,7 @@ while IFS= read -r line;do
 					a_rounded=`printf "%.2f" $nuevo_numero`
 					nueva_linea+="$a_rounded,"
 				else
-					if [ $i -eq 10 ];then 
+					if [ $i -eq 11 ];then 
 						nueva_linea+="${array[$i]}"
 					else
 						nueva_linea+="${array[$i]},"
